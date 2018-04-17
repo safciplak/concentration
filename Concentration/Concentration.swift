@@ -40,7 +40,16 @@ class Concentration {
             let card = Card()
             cards += [card, card]
         }
-        // TODO: Shuffle the cards
+        // Shuffle the cards
+        var shuffled = [Card]();
         
+        for _ in 0..<cards.count
+        {
+            let rand = Int(arc4random_uniform(UInt32(cards.count)))
+            shuffled.append(cards[rand])
+            cards.remove(at: rand)
+        }
+        
+        cards = shuffled
     }
 }
